@@ -21,7 +21,7 @@
         font-family: 'Arvo', serif;
       }
       body{
-        background-color:#798071;
+        background-color:grey;
       }
       #title:focus,#desc:focus,#price:focus,#imagee:focus,#limit:focus{
         outline: none !important;
@@ -44,6 +44,12 @@
         #upload{
           width: 30vw !important;
         }
+        #on,#off{
+          font-size: 6vw !important;
+        }
+        #off{
+          left: 6.2vw !important;
+        }
       }
       @media  (min-width: 700px) and (max-width: 900px) {
         .navfont{
@@ -61,17 +67,20 @@
         #upload{
           width: 20vw !important;
         }
+        #off{
+          left: 6.2vw !important;
+        }
       }
     </style>
   </head>
 
 
 
-  <body>
+  <body id="black">
 
     <section id="one">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-        <div class="container bg-light d-flex justify-content-between ">
+      <nav class="navbar navbar-expand-lg  " id="navlight" style="background-color: black;">
+        <div class="container  d-flex justify-content-between " >
           <a class="navbar-brand navfont" style="font-size: 1.6vw;"  href="#"><i class="fa-solid fa-cart-shopping"></i> Shopkart</a>
           <a class="navbar-brand navfont hide" style="font-size: 1.6vw;"  href="#">Add Your Product</a>
           <a class="navbar-brand navfont" style="font-size: 1.6vw;"  href="#">
@@ -79,7 +88,6 @@
             <button type="button" class="btn btn-primary navfont" data-toggle="modal" data-target="#staticBackdrop" id="dropLabel">
               + Add Item
             </button>
-
             <!-- Modal -->
             <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -141,23 +149,27 @@
       </nav>
 
     </section>
-    <section id="two" class="d-flex justify-content-center" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; border-radius: 20px;">
-      <div class="card mt-5 cardfont" style="width: 28rem;"  >
-        <div class="d-flex justify-content-center">
+    <div class="toggle d-flex justify-content-end p-3 pr-5">
+      <i style="font-size: 3vw; color: black; position: relative; left: 3vw; " class="fa-solid fa-toggle-off "id="off"></i>
+      <i  style="font-size: 3vw; color: white;visibility: hidden" class="fa-solid fa-toggle-on " id="on"></i>
+    </div>
+    <section id="two" class="d-flex justify-content-center" >
+      <div class="card mt-5 cardfont " style="width: 28rem; box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; border-radius: 20px; background-color: black; color: white;" id="left"  >
+        <div class="d-flex justify-content-center" >
           <img id="proimg" src="asserts/Images/dumb.jpg" class="card-img-top mt-5" alt="..." style="width: 280px !important; height: 200px !important;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; border-radius: 20px;">
           <h1 style="position: absolute;left: 0px;"class="p-2" id="proprice">₹2000</h1>
         </div>
         <div class="card-body">
-          <p style="color: red;">Product</p>
+          <p class="text-primary">Product</p>
           <h5 class="card-title" id="protitile">AMAN FIT Super Quality PVC Set <!--(1.5 KG X 2 Pcs) Hex Fixed Weight Dumbbell  (1.5 kg)--></h5>
-          <p style="color: red;">Description</p>
+          <p class="text-primary">Description</p>
           <p class="card-text" id="prodesc">
             Brand New Design-Hex Shape Pvc Dumbbells Filled with Sand / Cement <!--in it which makes it more durable and long lasting. in the box - 1.5Kg X 2 Pcs Dumbbells--></p>
             <div  class="d-flex justify-content-between p-2">
               <table >
                 <tr>
                   <td colspan="3">
-                    <label id="Max" class="text-danger">Limit</label>
+                    <label id="Max" class="text-primary">Limit</label>
                   </td>
                 </tr>
                 <tr>
@@ -169,7 +181,7 @@
               <table>
                 <tr>
                   <td>
-                    <label class="text-danger"style="10px" for="totalamount" >Total Amount</label>
+                    <label class="text-primary"style="10px" for="totalamount" >Total Amount</label>
                   </td>
                 </tr>
                 <tr>
