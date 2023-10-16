@@ -171,5 +171,30 @@ minus.addEventListener("click",function(){
 
 // var shop = document.getElementById("shop")
 function shop() {
-    alert("Successfully ordered :"+protitile.textContent+"\nTotal Price :"+totalamount.value)
+  alert("Successfully ordered :"+protitile.textContent+"\nTotal Price :"+totalamount.value)
 }
+
+var off = document.getElementById("off")
+var on = document.getElementById("on")
+var black = document.getElementById("black")
+var left = document.getElementById("left")
+var navlight = document.getElementById("navlight")
+
+off.addEventListener("click",function(){
+  black.style.backgroundColor="black"
+  left.style.backgroundColor="grey"
+  off.style.visibility="hidden"
+  on.style.visibility="visible"
+  left.style.color="black"
+  navlight.style.color="white"
+  navlight.style.backgroundColor="white"
+})
+on.addEventListener("click",function(){
+  black.style.backgroundColor="grey"
+  left.style.backgroundColor="black"
+  on.style.visibility="hidden"
+  off.style.visibility="visible"
+  left.style.color="White"
+  navlight.style.color="White"
+  navlight.style.backgroundColor="black"
+})
