@@ -171,5 +171,5 @@ minus.addEventListener("click",function(){
 
 // var shop = document.getElementById("shop")
 function shop() {
-  alert("Successfully ordered :"+protitile.textContent)
+    alert("Successfully ordered :"+protitile.textContent+"\nTotal Price :"+totalamount.value)
 }
