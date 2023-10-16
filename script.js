@@ -182,7 +182,7 @@ var navlight = document.getElementById("navlight")
 
 off.addEventListener("click",function(){
   black.style.backgroundColor="black"
-  left.style.backgroundColor="grey"
+  left.style.backgroundColor="white"
   off.style.visibility="hidden"
   on.style.visibility="visible"
   left.style.color="black"
