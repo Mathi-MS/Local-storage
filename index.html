@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Arvo&family=Dosis&family=Handjet&family=Nunito&family=Poppins:wght@200;400;500&family=Rajdhani:wght@600&family=Raleway&family=Roboto&family=Zilla+Slab&display=swap" rel="stylesheet">
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- icon  -->
+    <link rel="icon" href="asserts/Images/carticon.png">
+    <title>Cart</title>
+    <style>
+      *{
+        font-family: 'Arvo', serif;
+      }
+      body{
+        background-color:#798071;
+      }
+      #title:focus,#desc:focus,#price:focus,#imagee:focus,#limit:focus{
+        outline: none !important;
+      }
+      .addminu{
+        border: solid 2px black;
+        padding: 10px;
+        font-weight: 800;
+      }
+      @media only screen and (max-width: 700px) {
+        .navfont{
+          font-size: 3.5vw !important;
+        }
+        .modal{
+          font-size: 4vw !important;         
+        }
+        .hide{
+          display: none;
+        }
+        #upload{
+          width: 30vw !important;
+        }
+      }
+      @media  (min-width: 700px) and (max-width: 900px) {
+        .navfont{
+          font-size: 3.8vw !important;
+        }
+        .modal{
+          font-size: 2.8vw !important;
+        }
+        .hide{
+          display: none;
+        }
+        .cardfont{
+          width: 25rem !important;
+        }
+        #upload{
+          width: 20vw !important;
+        }
+      }
+    </style>
+  </head>
+
+
+
+  <body>
+
+    <section id="one">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <div class="container bg-light d-flex justify-content-between ">
+          <a class="navbar-brand navfont" style="font-size: 1.6vw;"  href="#"><i class="fa-solid fa-cart-shopping"></i> Shopkart</a>
+          <a class="navbar-brand navfont hide" style="font-size: 1.6vw;"  href="#">Add Your Product</a>
+          <a class="navbar-brand navfont" style="font-size: 1.6vw;"  href="#">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary navfont" data-toggle="modal" data-target="#staticBackdrop" id="dropLabel">
+              + Add Item
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade " id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                     <!-- Input  -->
+                     <table>
+                        <!-- title  -->
+                        <tr>
+                          <td><label for="title">Product Name</label></td>
+                          <td><input type="text" placeholder="Enter your Product Title" id="title"></td>
+                        </tr>
+                        <!-- Description  -->
+                        <tr >
+                          <td><label for="desc" class="mt-3">Description</label></td>
+                          <td><input type="text" class="mt-3" placeholder="Enter your Description" id="desc"></td>
+                        </tr>
+                        <!-- Value  -->
+                        <tr >
+                          <td><label for="price" class="mt-3">Price</label></td>
+                          <td><input type="number" class="mt-3" placeholder="Enter Price" id="price" min="0" step="100"></td>
+                        </tr>
+                        <!-- Image upload  -->
+                        <tr >
+                          <td><label for="imagee" class="mt-3">Image</label></td>
+                          <td><input type="file" class="mt-3" placeholder="Enter Price" id="fileInput" onchange="loadFile(event)"></td>
+                        </tr>
+                        <!-- imageuploadedsample -->
+                        <tr >
+                          <td colspan="2" class="d-flex justify-content-center" style="width: 100% !important;">
+                            <img src="asserts/Images/upload.png" alt="Upload..." id="imagePreview" style="width: 10vw ; height: 10vw;">
+                          </td>
+                        </tr>
+                        <!-- Limit  -->
+                        <tr >
+                          <td><label for="limit" class="mt-3">Max limit</label></td>
+                          <td><input type="number" class="mt-3" placeholder="Enter Max Limit" id="limit" min="1"></td>
+                        </tr>
+
+                      </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="saveButton">Save Image</button>
+                    <div id="addche">
+                    <button type="submit" class="btn btn-primary" onclick="add()"  >Add</button>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
+
+    </section>
+    <section id="two" class="d-flex justify-content-center" style="box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; border-radius: 20px;">
+      <div class="card mt-5 cardfont" style="width: 28rem;"  >
+        <div class="d-flex justify-content-center">
+          <img id="proimg" src="asserts/Images/dumb.jpg" class="card-img-top mt-5" alt="..." style="width: 280px !important; height: 200px !important;box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; border-radius: 20px;">
+          <h1 style="position: absolute;left: 0px;"class="p-2" id="proprice">₹2000</h1>
+        </div>
+        <div class="card-body">
+          <p style="color: red;">Product</p>
+          <h5 class="card-title" id="protitile">AMAN FIT Super Quality PVC Set <!--(1.5 KG X 2 Pcs) Hex Fixed Weight Dumbbell  (1.5 kg)--></h5>
+          <p style="color: red;">Description</p>
+          <p class="card-text" id="prodesc">
+            Brand New Design-Hex Shape Pvc Dumbbells Filled with Sand / Cement <!--in it which makes it more durable and long lasting. in the box - 1.5Kg X 2 Pcs Dumbbells--></p>
+            <div  class="d-flex justify-content-between p-2">
+              <table >
+                <tr>
+                  <td colspan="3">
+                    <label id="Max" class="text-danger">Limit</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="minus addminu text-center" style="cursor: pointer;">-</td>
+                  <td class="valueadd addminu text-center" style="cursor: pointer;">0</td>
+                  <td class="plus addminu text-center" style="cursor: pointer;">+</td>
+                </tr>
+              </table>
+              <table>
+                <tr>
+                  <td>
+                    <label class="text-danger"style="10px" for="totalamount" >Total Amount</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input id="totalamount" type="number" style="border: 2px solid black; padding: 10px;" >
+                  </td>
+                </tr>
+              </table>
+            </div>
+          <div  class="d-flex justify-content-center">
+            <a href="#" onclick="shop()" class="btn btn-primary" id="shop">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+
+      
+    </section>
+    <!-- Jquery   -->
+    <script src="asserts/js/jquery.min.js"></script>
+    <!-- Javascript Bootstrap  -->
+    <script src="asserts/js/bootstrap.bundle.min.js"></script>
+    <!-- External Javascript  -->
+    <script src="script.js"></script>
+  </body>
+
+
+</html>
